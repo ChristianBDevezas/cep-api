@@ -1,0 +1,225 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #e7c79d;
+    padding: 0 10px;
+}
+
+/**Search Section**/
+section.search {
+    max-width: 500px;
+    margin: 23px auto 0 auto;
+}
+
+form {
+    font-family: "Poppins", sans-serif;
+    background-color: rgba(255, 255, 255, .5);
+    padding: 14px;
+    border-radius: 10px;
+    border: 2px solid rgb(235, 177, 25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form h3 {
+    margin-bottom: 10px;
+}
+
+form .form__label {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.form__label i {
+    padding: 7px;
+    margin-right: 7px;
+    background-color: rgba(235, 177, 25, .4);
+    color: rgb(212, 157, 16);
+    border-radius: 50%;
+    border: 1px solid rgba(235, 177, 25, .75);
+    width: 34px;
+    height: 32px;
+}
+
+form .form__label__para {
+    margin: 8px 0 4px 0;
+}
+
+.form__group input {
+    padding: 7px 7px 7px 5px;
+    border-radius: 3px;
+    border: 1px solid #bbb8b8;
+    width: 100%;
+    min-width: 180px;
+}
+
+form .form__button {
+    margin-top: 14px;
+    width: 67%;
+}
+
+.form__button input {
+    font-family: "Poppins", sans-serif;
+    padding: 8px 10px;
+    cursor: pointer;
+    background-color: rgb(235, 177, 25);
+    border: none;
+    width: 100%;
+    min-width: 180px;
+    border-radius: 3px;
+    border: 1px solid transparent;
+    transition: .35s;
+}
+.form__button input:hover {
+    background-color: rgba(235, 177, 25, .25);
+    border: 1px solid rgb(235, 177, 25);
+}
+/**end Search Section**/
+
+/**Modal Section**/
+section.modal {
+    max-width: 1000px;
+    margin: 12px auto 20px auto;
+    padding: 5px 0px 13px 0px;
+    font-family: "Poppins", sans-serif;
+    border: 2px solid #9c9b9b;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, .8);
+    position: relative;
+    opacity: 0;
+    visibility: hidden;
+}
+
+section.modal.show {
+    animation: show-modal 1s forwards;
+}
+
+section.modal.hide {
+    animation: hide-modal 1s forwards;
+}
+
+@keyframes show-modal {
+    from {opacity: 0; visibility: hidden;}
+    to {opacity: 1; visibility: visible;}
+}
+
+@keyframes hide-modal {
+    from {opacity: 1; visibility: visible;}
+    to {opacity: 0; visibility: hidden;}
+}
+
+.modal__close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+/*Set Modal Typography*/
+.modal h2,
+.modal h3 {
+    font-weight: 500;
+}
+
+.modal h3 {
+    font-size: 1rem;
+}
+
+.modal__top {
+    margin: 5px 0 13px 0;
+    padding-left: 12px;
+}
+
+/*set elements to display:flex*/
+.modal .flex-item {
+    display: flex;
+    align-items: center;
+}
+/*end set elements to display:flex*/
+
+.modal__top__cep {
+    font-size: 1.2rem;
+}
+
+.modal__top__cep,
+.modal__middle__district--info,
+.modal__middle__state--info,
+.modal__middle__street--info {
+    margin-left: 5px;
+}
+
+.modal__middle {
+    margin-bottom: 14px;
+    padding-left: 12px;
+}
+
+.modal__middle__district {
+    margin-bottom: 16px;
+}
+
+.modal__middle__district--title,
+.middle__state__title,
+.modal__middle__street--title,
+.modal__footer__title {
+    color: #707070;
+    margin-top: -2px;
+}
+
+.modal .fa-location-dot,
+.modal .fa-location-arrow,
+.modal .fa-compass,
+.modal .fa-road {
+    color: rgb(212, 157, 16);
+    background-color: rgba(235, 177, 25, .2);
+    padding: 8px;
+    border-radius: 50%;
+    border: 1px solid rgba(235, 177, 25, .75);
+    width: 34px;
+    height: 34px;
+    transform: scale(.8);
+}
+
+.modal__middle__street {
+    margin-top: 16px;
+}
+
+.modal__footer {
+    background: rgba(235, 177, 25, .75);
+    padding: 4px 0px 4px 10px;
+    border-radius: 8px;
+    width: 97.5%;
+    margin: 0 auto;
+}
+
+.modal__footer__icon {
+    background-color: rgb(165, 154, 126);
+    border: 1px solid white;
+    border-radius: 50%;
+    width: 29px;
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal__footer .fa-less-than,
+.modal__footer .fa-greater-than {
+    transform: scale(.55);
+    color: white;  
+}
+
+.modal__footer .fa-greater-than {
+    margin-left: -4px;
+}
+
+.modal__footer__title {
+    margin-left: 7px;
+}
+/**end Modal Section**/
