@@ -9,15 +9,11 @@ const modalLogradouro = document.querySelector(".modal__middle__street--info");
 const modalInfoCompleta = document.querySelector(".modal__footer__info");
 let modalTimeout;
 
-function openModal() {
-    modal.classList.add("show");
-    modal.classList.remove("hide");
-};
-
 function closeModal() {
     modal.classList.remove("show");
     modal.classList.add("hide");
-    // clearTimeout(modalTimeout);
+
+    clearTimeout(modalTimeout);
 };
 
 async function fetchCep(viaCepUrl) {
@@ -51,19 +47,20 @@ async function displayDataValues(viaCepUrl) {
         modalInfoCompleta.innerHTML = `${logradouro}, ${bairro}, ${localidade} - ${uf}, ${cep}`;
 
         // mostra o modal
-        openModal();
+        modal.classList.add("show");
+        modal.classList.remove("hide");
 
-        return true;
+        // reseta o timer do modal
+        clearTimeout(modalTimeout);
+        modalTimeout = setTimeout(closeModal, 20000);
     }
     catch(err) {
         console.error('Erro ao consultar ViaCEP:', err);
         alert('Erro ao buscar CEP!');
-
-        return false;
     }
 }
 
-form.addEventListener("submit", async(e) => {
+form.addEventListener("submit", (e) => {
     e.preventDefault();
     
     const inputFieldValue = inputField.value;
@@ -75,13 +72,7 @@ form.addEventListener("submit", async(e) => {
         const cep = inputFieldValue.replace(/\D/g, "");
         const viaCepUrl = `https://viacep.com.br/ws/${cep}/json/`;
 
-        let result = await displayDataValues(viaCepUrl);
-
-        if(result) {
-            // reseta o timer do modal
-            clearTimeout(modalTimeout);
-            modalTimeout = setTimeout(closeModal, 20000);
-        }
+        displayDataValues(viaCepUrl);
     }
 });
 
