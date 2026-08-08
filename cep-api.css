@@ -202,7 +202,7 @@ section.modal.hide {
     background-color: rgb(165, 154, 126);
     border: 1px solid white;
     border-radius: 50%;
-    width: 29px;
+    width: 32px;
     height: 28px;
     display: flex;
     justify-content: center;
@@ -211,12 +211,16 @@ section.modal.hide {
 
 .modal__footer .fa-less-than,
 .modal__footer .fa-greater-than {
-    transform: scale(.55);
-    color: white;  
+    transform: scale(.5);
+    color: white;
+}
+
+.modal__footer .fa-less-than {
+    margin-left: 3px;
 }
 
 .modal__footer .fa-greater-than {
-    margin-left: -4px;
+    margin: 0 4px 0 -4px;
 }
 
 .modal__footer__title {
